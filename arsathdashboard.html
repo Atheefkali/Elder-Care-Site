@@ -1,0 +1,233 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title> Dashboard</title>
+</head>
+<body>
+   
+
+
+<section>
+<!-- component -->
+<script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+
+<!-- page -->
+<main class=" min-h-screen w-full bg-gray-100 text-gray-500" x-data="layout">
+    <!-- header page -->
+    <header class="flex w-full items-center justify-between border-b-2 border-gray-200 bg-white p-2">
+        <!-- logo -->
+        <div class="flex items-center space-x-2">
+            <button type="button" class="text-3xl" @click="asideOpen = !asideOpen"><i class="bx bx-menu"></i></button>
+            <img src="images/logo.jpg" class="h-14 w-14 " alt="">
+            <div class="text-2xl ml-10">Dashboard</div>
+        </div>
+
+        <!-- button profile -->
+        <div>
+            <button type="button" @click="profileOpen = !profileOpen" @click.outside="profileOpen = false"
+                class="h-14 w-14 mr-10 overflow-hidden rounded-full">
+                <img src="images/elder.jpg" alt="plchldr.co" />
+            </button>
+
+            <!-- dropdown profile -->
+            <div class="absolute right-2 mt-1 w-48 divide-y divide-gray-200 rounded-md border border-gray-200 bg-white shadow-md"
+                x-show="profileOpen" x-transition>
+                <div class="flex items-center space-x-2 p-2">
+                    <img src="images/elder.jpg" alt="plchldr.co" class="h-9 w-9 rounded-full" />
+                    <div class="font-medium">Amhar Atheef</div>
+                </div>
+
+                <div class="flex flex-col space-y-3 p-2">
+                    <a href="#" class="transition hover:text-blue-600">My Profile</a>
+                    <a href="#" class="transition hover:text-blue-600">Edit Profile</a>
+                    <a href="#" class="transition hover:text-blue-600">Settings</a>
+                </div>
+
+                <div class="p-2">
+                    <button class="flex items-center space-x-2 transition hover:text-blue-600">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                            </path>
+                        </svg>
+                        <div>Log Out</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex ">
+        <!-- aside -->
+        <aside class="flex w-72  flex-col space-y-2 border-r-2 border-gray-200 bg-white p-2" style="height: 125.9vh"
+            x-show="asideOpen">
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+                <span class="text-2xl"><i class='bx bx-home'></i></span>
+                <span>Home</span>
+                
+
+            </a>
+
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+                <span class="text-2xl"><i class='bx bxs-book-bookmark'></i></span>
+                <span>My Courses</span>
+            </a>
+
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 6h11M3.8 5.8l.8.8l2-2m-2.8 7.2l.8.8l2-2m-2.8 7.2l.8.8l2-2M9 12h11M9 18h11"/></svg>
+                <span>Assingments</span>
+            </a>
+
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T3 13t.713-3.512t1.924-2.85t2.85-1.925T12 4t3.513.713t2.85 1.925t1.925 2.85T21 13t-.712 3.513t-1.925 2.85t-2.85 1.925T12 22m2.8-4.8l1.4-1.4l-3.2-3.2V8h-2v5.4zM5.6 2.35L7 3.75L2.75 8l-1.4-1.4zm12.8 0l4.25 4.25l-1.4 1.4L17 3.75z"/></svg>
+                <span>Time Table</span>
+            </a>
+
+            <a href="#" class="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M10.825 22q-.675 0-1.162-.45t-.588-1.1L8.85 18.8q-.325-.125-.612-.3t-.563-.375l-1.55.65q-.625.275-1.25.05t-.975-.8l-1.175-2.05q-.35-.575-.2-1.225t.675-1.075l1.325-1Q4.5 12.5 4.5 12.337v-.675q0-.162.025-.337l-1.325-1Q2.675 9.9 2.525 9.25t.2-1.225L3.9 5.975q.35-.575.975-.8t1.25.05l1.55.65q.275-.2.575-.375t.6-.3l.225-1.65q.1-.65.588-1.1T10.825 2h2.35q.675 0 1.163.45t.587 1.1l.225 1.65q.325.125.613.3t.562.375l1.55-.65q.625-.275 1.25-.05t.975.8l1.175 2.05q.35.575.2 1.225t-.675 1.075l-1.325 1q.025.175.025.338v.674q0 .163-.05.338l1.325 1q.525.425.675 1.075t-.2 1.225l-1.2 2.05q-.35.575-.975.8t-1.25-.05l-1.5-.65q-.275.2-.575.375t-.6.3l-.225 1.65q-.1.65-.587 1.1t-1.163.45zM11 20h1.975l.35-2.65q.775-.2 1.438-.587t1.212-.938l2.475 1.025l.975-1.7l-2.15-1.625q.125-.35.175-.737T17.5 12t-.05-.787t-.175-.738l2.15-1.625l-.975-1.7l-2.475 1.05q-.55-.575-1.212-.962t-1.438-.588L13 4h-1.975l-.35 2.65q-.775.2-1.437.588t-1.213.937L5.55 7.15l-.975 1.7l2.15 1.6q-.125.375-.175.75t-.05.8q0 .4.05.775t.175.75l-2.15 1.625l.975 1.7l2.475-1.05q.55.575 1.213.963t1.437.587zm1.05-4.5q1.45 0 2.475-1.025T15.55 12t-1.025-2.475T12.05 8.5q-1.475 0-2.487 1.025T8.55 12t1.013 2.475T12.05 15.5M12 12"/></svg>
+                <span>Settings</span>
+            </a>
+
+            
+        </aside>
+
+        <!-- main content page -->
+        <div class="w-full p-4">
+            <div>
+                <div class="flex items-center justify-between mr-10">
+                    <h1 class="font-semibold text-2xl">Welcome Back , <span> Mohamed Arsath Khan</span></h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24"><path fill="currentColor" d="M12 18.5q.625 0 1.063-.437T13.5 17h-3q0 .625.438 1.063T12 18.5M7 16h10v-2h-1v-2.6q0-1.525-.788-2.787T13 7V5.5h-2V7q-1.425.35-2.212 1.613T8 11.4V14H7zm5 6q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+                </div>
+
+                <!-- <div>
+                    <h1>
+                        My Courses
+                    </h1>
+                </div> -->
+                
+            </div>
+
+
+            <div class="my-10">
+                <h1 class="text-2xl font-semibold font-sans">My Courses</h1>
+            </div>
+
+            <div class="flex items-center flex-row space-x-7 ">
+                <div class=" h-70 w-72 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                    <img class="w-full h-auto rounded-t-xl" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80" alt="Image Description">
+                    <div class="p-4 md:p-5">
+                      <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+                        Project Analysis Practice
+                      </h3>
+                      <p class="mt-1 line-clamp-3 leading-relaxed text-gray-500 dark:text-neutral-400">
+                        Project Planning Tools,Techniques and Methods.System Development, UM and Other Techniques
+                      </p>
+                      
+                    </div>
+                </div>
+                <div class=" h-70 w-72 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                    <img class="w-full h-auto rounded-t-xl" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80" alt="Image Description">
+                    <div class="p-4 md:p-5">
+                      <h3 class="text-lg text-nowrap font-bold text-gray-800 dark:text-white">
+                        Artificial Intelligence
+                      </h3>
+                      <p class="mt-1 line-clamp-3 leading-relaxed text-gray-500 dark:text-neutral-400">
+                        Software engineers with advanced proficiency know how to identify and solve complex problems. 
+                      </p>
+                      
+                    </div>
+                </div>
+
+                <div class=" h-70 w-72 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                    <img class="w-full h-auto rounded-t-xl" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80" alt="Image Description">
+                    <div class="p-4 md:p-5">
+                      <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+                        Application Development
+                      </h3>
+                      <p class="mt-1 line-clamp-3 leading-relaxed text-gray-500 dark:text-neutral-400">
+                        Application development is the process of creating a computer program or a set of programs to perform the different tasks that a business requires.
+                      </p>
+                      
+                    </div>
+                </div>
+
+                <div class=" h-70 w-72 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                    <img class="w-full h-auto rounded-t-xl" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80" alt="Image Description">
+                    <div class="p-4 md:p-5">
+                      <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+                        Advanced Software 
+                      </h3>
+                      <p class="mt-1 line-clamp-3 leading-relaxed text-gray-500 dark:text-neutral-400">
+                        Artificial intelligence is the ability of a computer or computer-controlled robot to perform tasks that are commonly associated with the intellectual processes characteristic of humans
+                      </p>
+                      
+                    </div>
+                </div>
+            </div>
+
+            <div>
+               <div class="my-7">
+                <h2 class="text-2xl font-semibold ">My Progress</h2>
+                <div class="inline-block mb-1 ms-[calc(40%-1.25rem)] py-0.5 px-1.5 bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 rounded-lg dark:bg-blue-800/30 dark:border-blue-800 dark:text-blue-500">40%</div>
+                    <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                      <div class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 dark:bg-blue-500" style="width: 40%"></div>
+                    </div>
+                 
+               </div> 
+               <div class="my-5">
+                <h2 class="text-2xl font-semibold ">Assingments Progress</h2>
+                <div class="inline-block mb-1 ms-[calc(70%-1.25rem)] py-0.5 px-1.5 bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 rounded-lg dark:bg-blue-800/30 dark:border-blue-800 dark:text-blue-500">70%</div>
+                    <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                      <div class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 dark:bg-blue-500" style="width: 70%"></div>
+                    </div>
+                 
+               </div> 
+               <div class="my-5">
+                <h2 class="text-2xl font-semibold ">Attendence Progresss</h2>
+                <div class="inline-block mb-1 ms-[calc(90%-1.25rem)] py-0.5 px-1.5 bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 rounded-lg dark:bg-blue-800/30 dark:border-blue-800 dark:text-blue-500">90%</div>
+                    <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                      <div class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 dark:bg-blue-500" style="width: 90%"></div>
+                    </div>
+                 
+               </div> 
+               <div class="my-5">
+                <h2 class="text-2xl font-semibold ">Course Progress</h2>
+                <div class="inline-block mb-1 ms-[calc(50%-1.25rem)] py-0.5 px-1.5 bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 rounded-lg dark:bg-blue-800/30 dark:border-blue-800 dark:text-blue-500">50%</div>
+                    <div class="flex w-full h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                      <div class="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition duration-500 dark:bg-blue-500" style="width: 50%"></div>
+                    </div>
+                 
+               </div> 
+              
+              
+                    
+
+            </div>
+        </div>
+
+
+       
+    </div>
+   
+</main>
+
+<script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.data("layout", () => ({
+            profileOpen: false,
+            asideOpen: true,
+        }));
+    });
+</script>
+
+</section>
+
+  
+</body>
+</html>
